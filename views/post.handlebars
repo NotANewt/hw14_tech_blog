@@ -1,5 +1,5 @@
 <div class='text-center'>
-  <h2>{{name}}</h2>
+  <h2>{{title}}</h2>
   <p>{{{get_emoji}}}</p>
   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
@@ -12,3 +12,10 @@
     <button class='btn btn-primary'>See This Post!</button>
   </p>
 </div>
+
+{{! show all comments here }}
+{{#each post.comments as |comment|}}
+  <div>{{comment.title}}</div>
+{{/each}}
+
+{{! Add a form to create a new comment }}
