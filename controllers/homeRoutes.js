@@ -35,6 +35,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
     res.render('post', {
       ...post,
       logged_in: req.session.logged_in,
+      is_author: req.session.user_id == post.user_id,
     });
   } catch (err) {
     res.status(500).json(err);

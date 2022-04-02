@@ -37,12 +37,33 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const updateButtonHandler = async (event) => {
+  console.log('I clicked the update button');
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/posts/${id}`, {
+      method: 'PUT',
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to update post');
+    }
+  }
+};
+
 document
   .querySelector('.new-post-form')
   .addEventListener('submit', newFormHandler);
 
 // if statement to make sure there are posts to add delete buttons to before adding event listeners
 let postList = document.querySelector('.post-list');
+let deleteBtn = document.getElementById('delete-btn');
+let updateBtn = document.getElementById('update-btn');
+
 if (postList) {
-  postList.addEventListener('click', delButtonHandler);
+  deleteBtn.addEventListener('click', delButtonHandler);
+  updateBtn.addEventListener('click', updateButtonHandler);
 }
