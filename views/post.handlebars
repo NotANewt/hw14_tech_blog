@@ -18,5 +18,27 @@
   </div>
 
   {{! Add a form to create a new comment }}
+  <div>
+    <h3>Have something to add?</h3>
+
+    <form class='form new-post-form'>
+      <div class='form-group'>
+        <label for='comment-title'>Write your comment here:</label>
+        <input
+          class='form-input'
+          type='text'
+          id='comment-title'
+          name='comment-title'
+        />
+        <input type='hidden' value='{{id}}' id='comment-post_id' />
+      </div>
+
+      <div class='form-group'>
+        <button type='submit' class='btn btn-primary'>Create</button>
+      </div>
+    </form>
+  </div>
 
 </div>
+
+<script src='../js/post.js'></script>
