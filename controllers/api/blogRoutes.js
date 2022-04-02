@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { User, Comment, Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // POST to create a new blog or comment

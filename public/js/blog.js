@@ -25,6 +25,8 @@ const newFormHandler = async (event) => {
 };
 
 // Event Listener for Create button
-document
-  .querySelector('.new-blog-form')
-  .addEventListener('submit', newFormHandler);
+if (document.querySelector('.new-blog-form')) {
+  document
+    .querySelector('.new-blog-form')
+    .addEventListener('submit', newFormHandler);
+}

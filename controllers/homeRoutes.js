@@ -23,10 +23,9 @@ router.get('/', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to blog/:id route
-router.get('/blog/:id', withAuth, async (req, res) => {
+router.get('/blog/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
-      attributes: { exclude: ['password'] },
       include: [User, Comment],
     });
 
