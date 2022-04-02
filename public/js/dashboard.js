@@ -1,11 +1,11 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const title = document.querySelector('#post-title').value.trim();
-  const contents = document.querySelector('#post-desc').value.trim();
+  const title = document.querySelector('#blog-title').value.trim();
+  const contents = document.querySelector('#blog-desc').value.trim();
 
   if (title && contents) {
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/blogs`, {
       method: 'POST',
       body: JSON.stringify({ title, contents }),
       headers: {
@@ -16,7 +16,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to create post');
+      alert('Failed to create blog');
     }
   }
 };
@@ -25,14 +25,14 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/blogs/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to delete post');
+      alert('Failed to delete blog');
     }
   }
 };
@@ -42,28 +42,28 @@ const updateButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/blogs/${id}`, {
       method: 'PUT',
     });
 
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to update post');
+      alert('Failed to update blog');
     }
   }
 };
 
 document
-  .querySelector('.new-post-form')
+  .querySelector('.new-blog-form')
   .addEventListener('submit', newFormHandler);
 
-// if statement to make sure there are posts to add delete buttons to before adding event listeners
-let postList = document.querySelector('.post-list');
+// if statement to make sure there are blogs to add delete buttons to before adding event listeners
+let blogList = document.querySelector('.blog-list');
 let deleteBtn = document.getElementById('delete-btn');
 let updateBtn = document.getElementById('update-btn');
 
-if (postList) {
+if (blogList) {
   deleteBtn.addEventListener('click', delButtonHandler);
   updateBtn.addEventListener('click', updateButtonHandler);
 }

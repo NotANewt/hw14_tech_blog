@@ -11,7 +11,7 @@ body {
 }
 
 header,
-.post:not(:last-child) {
+.blog:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 

@@ -3,14 +3,14 @@ const newFormHandler = async (event) => {
 
   const title = document.querySelector('#comment-title').value.trim();
 
-  const post_id = document.querySelector('#comment-post_id').value.trim();
+  const blog_id = document.querySelector('#comment-blog_id').value.trim();
 
-  console.log(post_id);
+  console.log(blog_id);
 
-  if (title && post_id) {
+  if (title && blog_id) {
     const response = await fetch(`/api/comments`, {
       method: 'POST',
-      body: JSON.stringify({ title, post_id }),
+      body: JSON.stringify({ title, blog_id }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -19,12 +19,12 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Failed to create post');
+      alert('Failed to create blog');
     }
   }
 };
 
 // Event Listener for Create button
 document
-  .querySelector('.new-post-form')
+  .querySelector('.new-blog-form')
   .addEventListener('submit', newFormHandler);

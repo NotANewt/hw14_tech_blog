@@ -1,20 +1,20 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all posts and JOIN with user and comment data
-    const postData = await Post.findAll({
+    // Get all blogs and JOIN with user and comment data
+    const blogData = await Blog.findAll({
       include: [User, Comment],
     });
 
     // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
-      posts,
+      blogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -22,20 +22,20 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to post/:id route
-router.get('/post/:id', withAuth, async (req, res) => {
+// Use withAuth middleware to prevent access to blog/:id route
+router.get('/blog/:id', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
+    const blogData = await Blog.findByPk(req.params.id, {
       attributes: { exclude: ['password'] },
       include: [User, Comment],
     });
 
-    const post = postData.get({ plain: true });
+    const blog = blogData.get({ plain: true });
 
-    res.render('post', {
-      ...post,
+    res.render('blog', {
+      ...blog,
       logged_in: req.session.logged_in,
-      is_author: req.session.user_id == post.user_id,
+      is_author: req.session.user_id == blog.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -48,7 +48,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
+      include: [{ model: Blog }],
     });
 
     const user = userData.get({ plain: true });
