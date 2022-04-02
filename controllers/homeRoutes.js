@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all posts and JOIN with user data
+    // Get all posts and JOIN with user and comment data
     const postData = await Post.findAll({
       include: [User, Comment],
     });
@@ -25,12 +25,7 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      include: [User, Comment],
     });
 
     const post = postData.get({ plain: true });
