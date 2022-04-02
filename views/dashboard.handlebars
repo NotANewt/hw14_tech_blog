@@ -16,21 +16,6 @@
           <div class='col-md-8'>
             <p><a href='/dashboard/blog/{{blog.id}}'>{{blog.title}}</a></p>
           </div>
-          {{!-- {{! div with buttons }}
-          <div class='col-md-4'>
-
-            <button
-              class='btn btn-sm btn-danger'
-              data-id='{{blog.id}}'
-              id='delete-btn'
-            >DELETE</button>
-
-            <button
-              class='btn btn-sm btn-danger'
-              data-id='{{blog.id}}'
-              id='update-btn'
-            >UPDATE</button>
-          </div> --}}
 
         </div>
       {{/each}}
@@ -38,8 +23,9 @@
   {{/if}}
 </div>
 
-<div>
-  <a href='/'></a>
+{{! div with buttons }}
+<div class='col-md-4'>
+  <a href='/dashboard/blog' class='btn btn-sm btn-danger'>Create New Blog Post</a>
 </div>
 
 <script src='./js/dashboard.js'></script>
