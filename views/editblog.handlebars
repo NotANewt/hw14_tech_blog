@@ -1,0 +1,58 @@
+<div>
+
+  <h3>Blog Post:</h3>
+
+  {{! Form to creat new blog post }}
+  <form class='form blog-form'>
+    <div class='form-group'>
+      <label for='blog-title'>blog title:</label>
+      <input
+        class='form-input'
+        type='text'
+        id='blog-title'
+        name='blog-title'
+        value='{{title}}'
+      />
+    </div>
+
+    <div class='form-group'>
+      <label for='blog-desc'>contents:</label>
+      <textarea
+        class='form-input'
+        id='blog-desc'
+        name='blog-desc'
+      >{{contents}}</textarea>
+
+      <input type='text' name='id' value='{{id}}' />
+
+    </div>
+    <div class='form-group'>
+
+      {{#if id}}
+        <button
+          type='button'
+          class='btn btn-primary'
+          id='updateBlog'
+          data-id='{{id}}'
+        >Update</button>
+        <button
+          type='button'
+          class='btn btn-primary'
+          id='deleteBlog'
+          data-id='{{id}}'
+        >Delete</button>
+      {{else}}
+        <button
+          type='button'
+          class='btn btn-primary'
+          id='createBlog'
+        >Create</button>
+      {{/if}}
+
+    </div>
+
+  </form>
+
+</div>
+
+<script src='/js/editblog.js'></script>

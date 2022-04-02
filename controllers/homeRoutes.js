@@ -61,6 +61,33 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// GET route for create blog post
+router.get('/dashboard/blog', withAuth, async (req, res) => {
+  res.render('editblog');
+});
+
+// GET route to edit a blog post
+router.get('/dashboard/blog/:id', withAuth, async (req, res) => {
+  if (!req.params.id) {
+    res.render('editblog');
+  }
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [User, Comment],
+    });
+
+    const blog = blogData.get({ plain: true });
+
+    res.render('editblog', {
+      ...blog,
+      logged_in: req.session.logged_in,
+      is_author: req.session.user_id == blog.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {

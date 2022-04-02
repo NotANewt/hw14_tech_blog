@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Comment, Blog } = require('../../models');
+const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // POST to create a new blog or comment
@@ -30,6 +30,24 @@ router.delete('/:id', withAuth, async (req, res) => {
       return;
     }
 
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    let blogData = await Blog.update(req.body, {
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+    if (!blogData[0]) {
+      res.status(404).json({ message: 'No blog with this id!' });
+      return;
+    }
     res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);

@@ -5,43 +5,18 @@
 </div>
 
 <div class='row mt-4'>
-  <div class='col-md-6'>
-
-    <h3>Create a New Blog Post:</h3>
-
-    {{! Form to creat new blog post }}
-    <form class='form new-blog-form'>
-      <div class='form-group'>
-        <label for='blog-title'>blog title:</label>
-        <input
-          class='form-input'
-          type='text'
-          id='blog-title'
-          name='blog-title'
-        />
-      </div>
-
-      <div class='form-group'>
-        <label for='blog-desc'>description:</label>
-        <textarea class='form-input' id='blog-desc' name='blog-desc'></textarea>
-      </div>
-      <div class='form-group'>
-        <button type='submit' class='btn btn-primary'>Create</button>
-      </div>
-    </form>
-  </div>
 
   {{! loop through blogs }}
   {{#if blogs.length}}
     <div class='col-md-6 blog-list'>
-      <h3>Current Blogss:</h3>
+      <h3>My Blog Posts:</h3>
 
       {{#each blogs as |blog|}}
         <div class='row mb-2'>
           <div class='col-md-8'>
-            <p><a href='/blog/{{blog.id}}'>{{blog.title}}</a></p>
+            <p><a href='/dashboard/blog/{{blog.id}}'>{{blog.title}}</a></p>
           </div>
-          {{! div with buttons }}
+          {{!-- {{! div with buttons }}
           <div class='col-md-4'>
 
             <button
@@ -55,12 +30,16 @@
               data-id='{{blog.id}}'
               id='update-btn'
             >UPDATE</button>
-          </div>
+          </div> --}}
 
         </div>
       {{/each}}
     </div>
   {{/if}}
+</div>
+
+<div>
+  <a href='/'></a>
 </div>
 
 <script src='./js/dashboard.js'></script>
