@@ -1,4 +1,4 @@
-# Tech Blog
+# Tech Talk
 
 ![MIT License](https://img.shields.io/badge/license-MIT-green)
 
@@ -84,4 +84,4 @@ If you have any questions:
 ## Links
 
 - Here is the repo: [NotANewt/Tech Blog](https://www.github.com/NotANewt/hw14_tech_blog)
-- Here is the deployed pages on Heroku: [NotANewt/pages](https://meegan-tech-blog.herokuapp.com/)
+- Here is the deployed pages on Heroku: [Heroku/pages](https://meegan-tech-blog.herokuapp.com/)
