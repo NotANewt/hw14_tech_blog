@@ -73,7 +73,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 // GET route for create blog post
 router.get('/dashboard/blog', withAuth, async (req, res) => {
-  res.render('editblog');
+  res.render('editblog', {
+    logged_in: true,
+  });
 });
 
 // GET route to edit a blog post
