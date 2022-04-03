@@ -114,3 +114,13 @@ footer li {
   padding: 0;
   font-weight: bold;
 }
+
+.btn-primary {
+  background-color: #f0c;
+  color: #fff !important;
+  border: 0px;
+}
+
+.signup-top {
+  padding: 0;
+}
