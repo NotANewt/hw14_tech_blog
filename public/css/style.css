@@ -36,3 +36,7 @@ header,
   font-weight: bold;
   margin-left: -5px;
 }
+
+.blog-post {
+  white-space: pre-wrap;
+}
