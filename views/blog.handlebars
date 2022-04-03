@@ -12,7 +12,7 @@
   <h3>Comments</h3>
 
   {{#if logged_in}}
-    <form class='comment-form my-4'>
+    <form class='comment-form my-4 needs-validation' data-id='{{id}}'>
       <div class='form-row align-items-left'>
         <div class='col-11'>
           <label class='sr-only' for='comment-title'>Write your comment here.</label>
@@ -22,6 +22,7 @@
             id='comment-title'
             name='comment-title'
             placeholder='Write your comment here.'
+            required
           />
         </div>
 
@@ -29,7 +30,6 @@
           <button
             type='submit'
             class='btn btn-primary comment-button'
-            data-id='{{id}}'
           >Create</button>
         </div>
       </div>
@@ -47,7 +47,8 @@
       </div>
     {{/each}}
   </div>
-
 </aside>
+
+<div id='snackbar'></div>
 
 <script src='../js/blog.js'></script>

@@ -16,7 +16,19 @@ const createButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to create blog');
+      // Get the snackbar DIV
+      var x = document.getElementById('snackbar');
+
+      x.innerHTML = 'Failed to create blog.';
+
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
   }
 };
@@ -35,7 +47,19 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to delete blog');
+      // Get the snackbar DIV
+      var x = document.getElementById('snackbar');
+
+      x.innerHTML = 'Failed to delete blog.';
+
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
   }
 };
@@ -59,7 +83,19 @@ const updateButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to create blog');
+      // Get the snackbar DIV
+      var x = document.getElementById('snackbar');
+
+      x.innerHTML = 'Could not update blog post.';
+
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
   }
 };
@@ -78,7 +114,19 @@ const delCommentButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to delete blog');
+      // Get the snackbar DIV
+      var x = document.getElementById('snackbar');
+
+      x.innerHTML = 'Could not delete blog.';
+
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
   }
 };
@@ -86,8 +134,8 @@ const delCommentButtonHandler = async (event) => {
 // Event Listener for Create Post button
 if (document.querySelector('#createBlog')) {
   document
-    .querySelector('#createBlog')
-    .addEventListener('click', createButtonHandler);
+    .querySelector('.blog-form')
+    .addEventListener('submit', createButtonHandler);
 }
 
 // Event Listener for Delete Post button
@@ -100,8 +148,8 @@ if (document.querySelector('#deleteBlog')) {
 // Event Listener for Update Post button
 if (document.querySelector('#updateBlog')) {
   document
-    .querySelector('#updateBlog')
-    .addEventListener('click', updateButtonHandler);
+    .querySelector('.blog-form')
+    .addEventListener('submit', updateButtonHandler);
 }
 
 // Event Listener for Delete Comment button

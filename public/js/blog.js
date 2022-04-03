@@ -17,7 +17,19 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Failed to create comment');
+      // Get the snackbar DIV
+      var x = document.getElementById('snackbar');
+
+      x.innerHTML = 'Failed to create comment.';
+
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
   }
 };
@@ -25,6 +37,6 @@ const newFormHandler = async (event) => {
 // Event Listener for Create button
 if (document.querySelector('.comment-form')) {
   document
-    .querySelector('.comment-button')
-    .addEventListener('click', newFormHandler);
+    .querySelector('.comment-form')
+    .addEventListener('submit', newFormHandler);
 }

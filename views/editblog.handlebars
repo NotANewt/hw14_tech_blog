@@ -1,7 +1,7 @@
 <h2>Blog Post</h2>
 
 {{! Form to creat new blog post }}
-<form class='form blog-form'>
+<form class='form blog-form needs-validation' data-id='{{id}}'>
   <div class='form-group'>
     <label for='blog-title'>Title</label>
     <input
@@ -10,6 +10,7 @@
       id='blog-title'
       name='blog-title'
       value='{{title}}'
+      required
     />
   </div>
 
@@ -19,13 +20,14 @@
       class='form-control'
       id='blog-desc'
       name='blog-desc'
+      required
     >{{contents}}</textarea>
   </div>
   <div class='form-group'>
 
     {{#if id}}
       <button
-        type='button'
+        type='submit'
         class='btn btn-primary'
         id='updateBlog'
         data-id='{{id}}'
@@ -38,7 +40,7 @@
       >Delete</button>
     {{else}}
       <button
-        type='button'
+        type='submit'
         class='btn btn-primary'
         id='createBlog'
       >Create</button>
@@ -64,5 +66,7 @@
     {{/each}}
   </div>
 {{/if}}
+
+<div id='snackbar'></div>
 
 <script src='/js/editblog.js'></script>

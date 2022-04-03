@@ -17,7 +17,19 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the dashboard page
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      // Get the snackbar DIV
+      var x = document.getElementById('snackbar');
+
+      x.innerHTML = 'Login Error. Please try again or sign up to log in.';
+
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
   }
 };
@@ -39,7 +51,19 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      // Get the snackbar DIV
+      var x = document.getElementById('snackbar');
+
+      x.innerHTML = 'Signup error. Please try again.';
+
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
   }
 };
