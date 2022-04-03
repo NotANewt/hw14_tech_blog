@@ -1,7 +1,7 @@
 <!-- Loop over each object in the blogs array -->
 {{#each blogs as |blog|}}
   <div class='row mb-4 blog'>
-    <div class='col-md-5'>
+    <div>
       <h2>
         <a href='/blog/{{blog.id}}'>{{blog.title}}</a>
       </h2>
@@ -11,8 +11,6 @@
         on
         {{format_date blog.date_created}}</p>
     </div>
-    <div class='col-md-7'>
-      <div class='blog-post'>{{blog.contents}}</div>
-    </div>
+
   </div>
 {{/each}}
