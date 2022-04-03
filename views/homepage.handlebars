@@ -1,7 +1,7 @@
-<div class='blogs'>
+<div class='homepage-blogs'>
   <h2>Blog Posts</h2>
   {{#each blogs as |blog|}}
-    <article class='blog'>
+    <div class='blog'>
       <h3>
         <a href='/blog/{{blog.id}}'>{{blog.title}}</a>
       </h3>
@@ -9,6 +9,6 @@
         {{blog.user.name}}
         on
         {{format_date blog.date_created}}</p>
-    </article>
+    </div>
   {{/each}}
 </div>
