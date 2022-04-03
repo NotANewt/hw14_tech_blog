@@ -54,6 +54,12 @@
         <p class='comment-content'>{{comment.title}}</p>
         <p class='comment-details'>{{comment.user.name}}
           {{format_date comment.date_created}}</p>
+        <button
+          type='button'
+          class='btn btn-primary'
+          id='deleteComment'
+          data-id='{{comment.id}}'
+        >Delete</button>
       </div>
     {{/each}}
   </div>

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// GET route to get all blogs and join with user and coment data
 router.get('/', async (req, res) => {
   try {
     // Get all blogs and JOIN with user and comment data
@@ -22,7 +23,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to blog/:id route
+// GET route to get data for an individual blog with withAuth middleware to prevent access to blog/:id route if not logged in
 router.get('/blog/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -50,7 +51,7 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to dashboard route
+// GET route to return all blogs written by the user with withAuth middleware to prevent access to dashboard route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -106,13 +107,14 @@ router.get('/dashboard/blog/:id', withAuth, async (req, res) => {
   }
 });
 
+// GET to check user is logged in, sends them to the dashboard if they are or sends them to the login page
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;
   }
-
+  // if not logged in, send them to the login page
   res.render('login');
 });
 
