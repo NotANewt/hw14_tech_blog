@@ -1,44 +1,51 @@
-<div class='text-center'>
+<article class='blog-post'>
   <h2>{{title}}</h2>
-  <p>{{contents}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}} </p>
+  <p class='blog-details'>Posted by
+    {{user.name}}
+    on
+    {{format_date date_created}}
+  </p>
+  <p class='blog-content'>{{contents}}</p>
+</article>
 
-</div>
-
-<div>
-  <h3>Comments:</h3>
-  {{! show all comments here }}
-  <div>
-    {{#each comments as |comment|}}
-      <div>{{comment.title}}</div>
-      <div>{{comment.user.name}} {{format_date comment.date_created}}</div>
-    {{/each}}
-  </div>
+<aside>
+  <h3>Comments</h3>
 
   {{#if logged_in}}
     {{! Add a form to create a new comment }}
-    <div>
-      <h3>Have something to add?</h3>
+    <form class='form comment-form'>
+      <div class='form-group'>
+        <label for='comment-title'>Write your comment here</label>
+        <input
+          class='form-input'
+          type='text'
+          id='comment-title'
+          name='comment-title'
+        />
+      </div>
 
-      <form class='form new-blog-form'>
-        <div class='form-group'>
-          <label for='comment-title'>Write your comment here:</label>
-          <input
-            class='form-input'
-            type='text'
-            id='comment-title'
-            name='comment-title'
-          />
-          <input type='hidden' value='{{id}}' id='comment-blog_id' />
-        </div>
-
-        <div class='form-group'>
-          <button type='submit' class='btn btn-primary'>Create</button>
-        </div>
-      </form>
-    </div>
+      <div class='form-group'>
+        <button
+          type='submit'
+          class='btn btn-primary comment-button'
+          data-id='{{id}}'
+        >Create</button>
+      </div>
+    </form>
+  {{else}}
+    <p>You can <a href='/login'>log in</a> to add a comment.</p>
   {{/if}}
 
-</div>
+  <div class='comments'>
+    {{#each comments as |comment|}}
+      <div class='comment'>
+        <p class='comment-content'>{{comment.title}}</p>
+        <p class='comment-details'>{{comment.user.name}}
+          {{format_date comment.date_created}}</p>
+      </div>
+    {{/each}}
+  </div>
+
+</aside>
 
 <script src='../js/blog.js'></script>

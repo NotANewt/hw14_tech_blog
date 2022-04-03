@@ -3,7 +3,7 @@ const newFormHandler = async (event) => {
 
   const title = document.querySelector('#comment-title').value.trim();
 
-  const blog_id = document.querySelector('#comment-blog_id').value.trim();
+  const blog_id = event.target.getAttribute('data-id');
 
   if (title && blog_id) {
     const response = await fetch(`/api/comments`, {
@@ -17,14 +17,14 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Failed to create blog');
+      alert('Failed to create comment');
     }
   }
 };
 
 // Event Listener for Create button
-if (document.querySelector('.new-blog-form')) {
+if (document.querySelector('.comment-form')) {
   document
-    .querySelector('.new-blog-form')
-    .addEventListener('submit', newFormHandler);
+    .querySelector('.comment-button')
+    .addEventListener('click', newFormHandler);
 }

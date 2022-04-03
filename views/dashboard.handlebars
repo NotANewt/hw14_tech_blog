@@ -1,32 +1,22 @@
-<div class='row'>
-  <div class='col-auto'>
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
+<div class='dashboard'>
 
-<div>
+  <h2>Welcome, {{name}}!</h2>
 
-  {{! loop through blogs }}
+  <h3>My Blog Posts</h3>
   {{#if blogs.length}}
-    <div class='blog-list'>
-      <h3>My Blog Posts:</h3>
-
-      {{#each blogs as |blog|}}
-        <div class='row mb-2'>
-          <div class='col-md-8'>
-            <h4><a href='/dashboard/blog/{{blog.id}}'>{{blog.title}}</a></h4>
-            <p>Created on: {{format_date blog.date_created}}</p>
-          </div>
-
-        </div>
-      {{/each}}
-    </div>
+    {{#each blogs as |blog|}}
+      <article class='blog'>
+        <h4><a href='/dashboard/blog/{{blog.id}}'>{{blog.title}}</a></h4>
+        <p class='blog-details'>Created on
+          {{format_date blog.date_created}}</p>
+      </article>
+    {{/each}}
+  {{else}}
+    <p>You have no blog posts. Click the button below to create a new one!</p>
   {{/if}}
-</div>
 
-{{! div with buttons }}
-<div class='col-md-4'>
-  <a href='/dashboard/blog' class='btn btn-sm btn-danger'>Create New Blog Post</a>
-</div>
+  <p>
+    <a href='/dashboard/blog' class='btn btn-sm btn-danger'>Create New Blog Post</a>
+  </p>
 
-<script src='./js/dashboard.js'></script>
+</div>

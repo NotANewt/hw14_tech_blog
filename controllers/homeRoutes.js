@@ -35,6 +35,7 @@ router.get('/blog/:id', async (req, res) => {
           model: User,
         },
       ],
+      order: [[Comment, 'date_created', 'desc']],
     });
 
     const blog = blogData.get({ plain: true });
@@ -81,7 +82,16 @@ router.get('/dashboard/blog/:id', withAuth, async (req, res) => {
   }
   try {
     const blogData = await Blog.findByPk(req.params.id, {
-      include: [User, Comment],
+      include: [
+        {
+          model: Comment,
+          include: [User],
+        },
+        {
+          model: User,
+        },
+      ],
+      order: [[Comment, 'date_created', 'desc']],
     });
 
     const blog = blogData.get({ plain: true });

@@ -1,16 +1,14 @@
-<!-- Loop over each object in the blogs array -->
-{{#each blogs as |blog|}}
-  <div class='row mb-4 blog'>
-    <div>
-      <h2>
+<div class='blogs'>
+  <h2>Blog Posts</h2>
+  {{#each blogs as |blog|}}
+    <article class='blog'>
+      <h3>
         <a href='/blog/{{blog.id}}'>{{blog.title}}</a>
-      </h2>
-
-      <p>Created by
+      </h3>
+      <p class='blog-details'>Created by
         {{blog.user.name}}
         on
         {{format_date blog.date_created}}</p>
-    </div>
-
-  </div>
-{{/each}}
+    </article>
+  {{/each}}
+</div>

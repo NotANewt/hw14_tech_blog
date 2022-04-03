@@ -9,30 +9,34 @@
   </head>
 
   <body>
-    <div class='flex-column justify-space-around'>
-      <header class='display-flex justify-space-between align-center p-2'>
+    <div class='container'>
+      <header class=''>
         <h1>
           <a href='/'>Tech Blog</a>
         </h1>
         <nav>
-          <a href='/'>Home</a>
-          |
-          <a href='/dashboard'>Dashboard</a>
-          |
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-            <button class='no-button' id='logout'>logout</button>
-          {{else}}
-            <a href='/login'>login</a>
-          {{/if}}
+          <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/dashboard'>Dashboard</a></li>
+            <!-- Conditionally render login or logout links -->
+            {{#if logged_in}}
+              <li><button class='no-button' id='logout'>Logout</button></li>
+            {{else}}
+              <li><a href='/login'>Login</a></li>
+            {{/if}}
+          </ul>
         </nav>
       </header>
-      <main class='container container-fluid mt-5'>
+      <main>
         <!-- Render the sub layout -->
         {{{body}}}
       </main>
       <footer>
-
+        <aside>Made with &#9825; and Javascript by
+          <a
+            href='https://github.com/NotANewt'
+            target='_blank'
+          >Meegan</a></aside>
       </footer>
     </div>
 
