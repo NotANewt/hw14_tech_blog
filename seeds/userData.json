@@ -1,17 +1,32 @@
 [
   {
-    "name": "Sal",
-    "email": "sal@hotmail.com",
-    "password": "password12345"
+    "name": "Mai",
+    "email": "mai.thanh@hotmail.com",
+    "password": "aslkjlehwlskbe"
   },
   {
-    "name": "Lernantino",
-    "email": "lernantino@gmail.com",
-    "password": "password12345"
+    "name": "Obi",
+    "email": "obi.uchee@gmail.com",
+    "password": "mdjekhsielshwa"
   },
   {
     "name": "Amiko",
     "email": "amiko2k20@aol.com",
-    "password": "password12345"
+    "password": "ffgkejddsiwhsndw"
+  },
+  {
+    "name": "Fodor",
+    "email": "fodor.szilveszter@hotmail.com",
+    "password": "wefbehskejwjs"
+  },
+  {
+    "name": "Gertrud",
+    "email": "gertrud1982@google.com",
+    "password": "wkejqlskbheksa"
+  },
+  {
+    "name": "Juan",
+    "email": "juantogohome@google.com",
+    "password": "gheldkdowksheghse"
   }
 ]

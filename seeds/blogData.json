@@ -1,14 +1,18 @@
 [
   {
-    "title": "Music Near Me",
-    "contents": "A mobile app that will send you notifications whenever a concert is playing in your area."
+    "title": "Object Oriented Programming",
+    "contents": "Object oriented programming is a useful way to create rich, reusable components and declarative APIs for web apps. The great thing about this approach is that it allows us to integrate well with the HTML 5 DOM. The downside is that JavaScript, especially in older versions, isn’t great at modeling reality, and thus, a lot of web app code contains hard-coded state that isn’t reusable.  The React team’s goal is to address this problem by giving us the tools and standard API to create better UI components. How are we going to make components using React? In React components are just objects. This means that they’re completely reusable."
   },
   {
-    "title": "The Ultimate Tech Quiz",
-    "contents": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!"
+    "title": "Is CSS the next hot religion?",
+    "contents": "CSS as a religion is a new idea. As a movement, we want to support you in your computer crafts. Well this is beginning to sound very familiar. After digging a bit deeper, I learned that Cheryl Humphrey does not want to become a member of the IHC because of these beliefs. ked to her a bit and got a good report back. The thing that struck me most was that IHC leaders were not trying to push anything on anyone. They just want to bring people together to share ideas, emotions, and experiences. That made me believe that our next LMS to work on will be one that is open for learning by anyone. As a LMS that is open for learning by anyone we need to start thinking more about learning and less about building a powerful LMS. We will still have to build powerful features for finding, gathering, storing and accessing content and defining our team roles and responsibilities. The idea is to make our product flexible enough to be applied to many use cases, from employee learning to employee performance improvement."
   },
   {
-    "title": "Roll 'Em Up",
-    "contents": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes."
+    "title": "Data Security, Fraud, and the Blockchain",
+    "contents": "You must ensure that you wipe all your data off your phone. You must wipe the data from the memory card of your Android phone or put it into a safe, if you are planning to travel. What is the crime you should avoid while traveling? You must not travel with cash, you must not carry mobile phones, open wallets. Do not carry a Nokia or Apple device. What is the future of mobile transactions in India? RBI, Government of India, are developing a Blockchain technology for transactions and payments to check the corruption and fraud. In future, Blockchain will lead to an open P2P economy. This can help a person who doesn't have any money or credit to even buy food in a market. How can a person generate Bitcoins from mobile money? On your Bitcoin Wallet you can upload your Bitcoin Address and send Bitcoin to your Bitcoin Wallet using your mobile device. How is a mobile number not a valid ID card number for receiving remittances through m-wallets?"
+  },
+  {
+    "title": "Pop Up Ads Are The Worst!",
+    "contents": "pop up ads on windows, create junk folder. Now I don’t even see it \n sometimes. You can see they are spending millions of dollars to spam people and steal their money. \n If I ever want to use another browser besides Chrome, I will leave Chrome. \n Now I understand why The Pirate Bay said they shut down. \n We are the only ones who are not scared, and we will not be scared. \n Hell, if they wanted to they can just pull out their oars and leave, because \n we are ready to run this show. \n P.S. This is a better version of the post I did yesterday, just to link to this one instead. \n P.P.S. This browser can handle all you need! \n Edit \n PS. I used Stickyproxy again, because it is my favorite browser for windows, which does not keep track of all the cookies. \n I did a fast version of my plugin for it, since I know this plugin is slower. I think it will work better for sites you are checking daily and stuff, so you probably won’t see any difference when you change the settings. \n I thought about creating a compatible"
   }
 ]
