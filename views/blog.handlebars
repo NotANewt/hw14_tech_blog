@@ -11,6 +11,7 @@
   <div>
     {{#each comments as |comment|}}
       <div>{{comment.title}}</div>
+      <div>{{comment.user.name}} {{format_date comment.date_created}}</div>
     {{/each}}
   </div>
 
